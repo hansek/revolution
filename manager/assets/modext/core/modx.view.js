@@ -347,6 +347,9 @@ Ext.extend(MODx.browser.Window,Ext.Window,{
         this.hide(this.config.animEl || null,function(){
             if(selNode && callback){
                 var data = lookup[selNode.id];
+
+                data['source'] = this.config.source;
+
                 Ext.callback(callback,scope || this,[data]);
                 this.fireEvent('select',data);
             }
